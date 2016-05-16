@@ -46,7 +46,7 @@ $ export HALIDE_PATH=/your/path/to/halide
 $ make all
 ```
 
-This generates assembly code for used for linux (you should add the USE_NATIVE in defines.h, and add the ext/lib/native_x.a to Makefile) and assembly files for android build.
+This generates an object archive for linux (you should add the USE_NATIVE in defines.h, and add the ext/lib/native_x.a to Makefile) and assembly files for android build.
 
 Related Projects
 ----------------------------------------
