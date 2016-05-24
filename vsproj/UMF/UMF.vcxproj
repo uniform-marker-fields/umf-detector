@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B0CFF0F0-2DA7-4AFE-8B19-D36BDA4582C7}</ProjectGuid>
+    <RootNamespace>UMF</RootNamespace>
+    <ProjectName>UMFDetector</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(VSDEV_INC_PATH);$(ProjectDir)..\..\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(VSDEV_LIB32_PATH);$(ProjectDir)..\..\ext\lib;$(ProjectDir)..\..\ext\lib32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(VSDEV_INC_PATH);$(ProjectDir)..\..\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(VSDEV_LIB32_PATH);$(ProjectDir)..\..\ext\lib;$(ProjectDir)..\..\ext\lib32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\decisiontree.cpp" />
+    <ClCompile Include="..\..\src\edgel_detector.cpp" />
+    <ClCompile Include="..\..\src\edge_dir_detector.cpp" />
+    <ClCompile Include="..\..\src\grid_detector.cpp" />
+    <ClCompile Include="..\..\src\marker.cpp" />
+    <ClCompile Include="..\..\src\model.cpp" />
+    <ClCompile Include="..\..\src\tracker.cpp" />
+    <ClCompile Include="..\..\src\umf.cpp" />
+    <ClCompile Include="..\..\src\umf_unity_api.cpp" />
+    <ClCompile Include="..\..\src\util\calibration.cpp" />
+    <ClCompile Include="..\..\src\util\chromakey.cpp" />
+    <ClCompile Include="..\..\src\util\corner_detector.cpp" />
+    <ClCompile Include="..\..\src\util\distort.cpp" />
+    <ClCompile Include="..\..\src\util\draw.cpp" />
+    <ClCompile Include="..\..\src\util\epnp.cpp" />
+    <ClCompile Include="..\..\src\util\firewire_factory.cpp" />
+    <ClCompile Include="..\..\src\util\fixed_func.cpp" />
+    <ClCompile Include="..\..\src\util\gl_util.cpp" />
+    <ClCompile Include="..\..\src\util\grid_util.cpp" />
+    <ClCompile Include="..\..\src\util\homography2d.cpp" />
+    <ClCompile Include="..\..\src\util\image.cpp" />
+    <ClCompile Include="..\..\src\util\line_iterator.cpp" />
+    <ClCompile Include="..\..\src\util\mask_tracker.cpp" />
+    <ClCompile Include="..\..\src\util\native_x.cpp" />
+    <ClCompile Include="..\..\src\util\objpose.cpp" />
+    <ClCompile Include="..\..\src\util\opencv_factory.cpp" />
+    <ClCompile Include="..\..\src\util\orientation_filter.cpp" />
+    <ClCompile Include="..\..\src\util\pnp_solver.cpp" />
+    <ClCompile Include="..\..\src\util\pnp_solver_epnp.cpp" />
+    <ClCompile Include="..\..\src\util\pnp_solver_lhm.cpp" />
+    <ClCompile Include="..\..\src\util\pnp_solver_opencv.cpp" />
+    <ClCompile Include="..\..\src\util\point_tracker.cpp" />
+    <ClCompile Include="..\..\src\util\prosac.cpp" />
+    <ClCompile Include="..\..\src\util\renderer.cpp" />
+    <ClCompile Include="..\..\src\util\robust_planar.cpp" />
+    <ClCompile Include="..\..\src\util\Rpoly.cpp" />
+    <ClCompile Include="..\..\src\util\scanline_tracker.cpp" />
+    <ClCompile Include="..\..\src\util\shaders.cpp" />
+    <ClCompile Include="..\..\src\util\stream_factory.cpp" />
+    <ClCompile Include="..\..\src\util\umfdebug.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\decisiontree.h" />
+    <ClInclude Include="..\..\src\defines.h" />
+    <ClInclude Include="..\..\src\edgel_detector.h" />
+    <ClInclude Include="..\..\src\edge_dir_detector.h" />
+    <ClInclude Include="..\..\src\grid_detector.h" />
+    <ClInclude Include="..\..\src\marker.h" />
+    <ClInclude Include="..\..\src\model.h" />
+    <ClInclude Include="..\..\src\tracker.h" />
+    <ClInclude Include="..\..\src\umf.h" />
+    <ClInclude Include="..\..\src\umf_unity_api.h" />
+    <ClInclude Include="..\..\src\util\calibration.h" />
+    <ClInclude Include="..\..\src\util\chromakey.h" />
+    <ClInclude Include="..\..\src\util\corner_detector.h" />
+    <ClInclude Include="..\..\src\util\distort.h" />
+    <ClInclude Include="..\..\src\util\draw.h" />
+    <ClInclude Include="..\..\src\util\epnp.h" />
+    <ClInclude Include="..\..\src\util\exceptions.h" />
+    <ClInclude Include="..\..\src\util\firewire_factory.h" />
+    <ClInclude Include="..\..\src\util\fixed_class.h" />
+    <ClInclude Include="..\..\src\util\fixed_func.h" />
+    <ClInclude Include="..\..\src\util\fixsintab.h" />
+    <ClInclude Include="..\..\src\util\gl_util.h" />
+    <ClInclude Include="..\..\src\util\grid_util.h" />
+    <ClInclude Include="..\..\src\util\homography2d.h" />
+    <ClInclude Include="..\..\src\util\image.h" />
+    <ClInclude Include="..\..\src\util\kalman_filter.h" />
+    <ClInclude Include="..\..\src\util\line_iterator.h" />
+    <ClInclude Include="..\..\src\util\mask_tracker.h" />
+    <ClInclude Include="..\..\src\util\median_filter.h" />
+    <ClInclude Include="..\..\src\util\native_x.h" />
+    <ClInclude Include="..\..\src\util\objpose.h" />
+    <ClInclude Include="..\..\src\util\opencv_factory.h" />
+    <ClInclude Include="..\..\src\util\orientation_filter.h" />
+    <ClInclude Include="..\..\src\util\pnp_solver.h" />
+    <ClInclude Include="..\..\src\util\pnp_solver_epnp.h" />
+    <ClInclude Include="..\..\src\util\pnp_solver_lhm.h" />
+    <ClInclude Include="..\..\src\util\pnp_solver_opencv.h" />
+    <ClInclude Include="..\..\src\util\point_tracker.h" />
+    <ClInclude Include="..\..\src\util\prosac.h" />
+    <ClInclude Include="..\..\src\util\rapidxml.hpp" />
+    <ClInclude Include="..\..\src\util\renderer.h" />
+    <ClInclude Include="..\..\src\util\robust_planar.h" />
+    <ClInclude Include="..\..\src\util\Rpoly.h" />
+    <ClInclude Include="..\..\src\util\scanline_tracker.h" />
+    <ClInclude Include="..\..\src\util\shaders.h" />
+    <ClInclude Include="..\..\src\util\singleton.h" />
+    <ClInclude Include="..\..\src\util\stream_factory.h" />
+    <ClInclude Include="..\..\src\util\umfdebug.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

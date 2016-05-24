@@ -48,6 +48,19 @@ $ make all
 
 This generates an object archive for linux (you should add the USE_NATIVE in defines.h, and add the ext/lib/native_x.a to Makefile) and assembly files for android build.
 
+Compilation - windows
+----------------------------------------
+
+Dependencies
+- Visual Studio 2013
+- opencv
+- Halide
+- argtable2
+- environment variables (see vsproj/README.txt)
+
+Open solution: vsproj/UMF/UMF.sln
+This should generate the native libraries with Halide and a .dll
+
 Related Projects
 ----------------------------------------
 
