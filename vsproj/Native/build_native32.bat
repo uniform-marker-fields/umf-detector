@@ -1,8 +1,8 @@
 :: Windows version of halide
 
 ::set path
-echo "setting path"
-set PATH=%PATH%;%VSDEV_BIN32_PATH%
+:: echo "setting path"
+:: set PATH=%PATH%;%VSDEV_BIN32_PATH%
 
 :: Windows version of halide 32 bit
 pushd %1
