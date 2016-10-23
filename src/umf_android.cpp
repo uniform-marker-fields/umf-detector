@@ -21,10 +21,6 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <unistd.h>
 
-#ifdef UMF_ANDROID_PROFILING
-#include "prof.h"
-#endif
-
 #define  LOG_TAG    "UmfDetector"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -57,10 +53,6 @@ void nf_freeDetector(void **detPointer);
 
 JNIEXPORT void JNICALL Java_com_quadrati_umfdetector_UMFNative_init(JNIEnv * env, jobject obj,  jint width, jint height, jfloat fovx, jfloat fovy, jboolean chroma)
 {
-#ifdef UMF_ANDROID_PROFILING
-    setenv("CPUPROFILE_FREQUENCY", "200", 1); /* Change to 500 interrupts per second */
-    monstartup("libUMFDetector.so");
-#endif
 
     jclass cls = env->FindClass("com/quadrati/umfdetector/UMFNative");
     jfieldID fid = env->GetFieldID(cls, "detectorPointer", "J");
@@ -173,10 +165,6 @@ JNIEXPORT void JNICALL Java_com_quadrati_umfdetector_UMFNative_free(JNIEnv * env
 
     env->SetLongField(obj, fid, (long) detector);
 
-#ifdef UMF_ANDROID_PROFILING
-    moncleanup();
-#endif
-	
 	env->DeleteLocalRef(cls);
 }
 
@@ -243,11 +231,11 @@ JNIEXPORT jint JNICALL Java_com_quadrati_umfdetector_UMFNative_updateYUV(JNIEnv 
         double position[3];
 		double rotation[4];
 		detector->model.getCameraPosRot(position, rotation);
-        
+
         env->SetFloatField(result, positionx, (float)position[0]);
         env->SetFloatField(result, positiony, (float)position[1]);
         env->SetFloatField(result, positionz, (float)position[2]);
-        
+
         env->SetFloatField(result, quatw, (float)rotation[0]);
         env->SetFloatField(result, quatx, (float)rotation[1]);
         env->SetFloatField(result, quaty, (float)rotation[2]);
@@ -389,7 +377,7 @@ void nf_initDetector(void **detPointer, int width, int height, float fov, bool c
     umf::UMFDetector<UMF_DETECTOR_CHANNELS> *detector =
     		new umf::UMFDetector<UMF_DETECTOR_CHANNELS>(umf::UMF_FLAG_ITER_REFINE | umf::UMF_FLAG_TRACK_POS|
     				umf::UMF_FLAG_SUBWINDOWS | umf::UMF_FLAG_SUBPIXEL );
-    
+
 	if (chroma) {
 		detector->setFlags(detector->getFlags() | umf::UMF_FLAG_CHROMAKEY);
 	}

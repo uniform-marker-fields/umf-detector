@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UMFDetector.iml" filepath="$PROJECT_DIR$/UMFDetector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/umf-android-lib/umf-android-lib.iml" filepath="$PROJECT_DIR$/umf-android-lib/umf-android-lib.iml" />
+    </modules>
+  </component>
+</project>
